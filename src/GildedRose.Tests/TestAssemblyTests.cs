@@ -123,6 +123,180 @@ namespace GildedRose.Tests
 
         /***********************************************************************************************/
 
+        [Fact]
+        public void TestAgedBrie_ValidQuality()
+        {
+            var matureItem = new Item
+            {
+                Name = "Aged Brie",
+                SellIn = 2,
+                Quality = 0
+            };
+
+            SetUpItem(matureItem);
+
+            Assert.Equal(1, matureItem.SellIn);
+            Assert.Equal(1, matureItem.Quality);
+        }
+
+        [Fact]
+        public void TestAgedBrie_InvalidQuality_LowerBound()
+        {
+            var matureItem = new Item
+            {
+                Name = "Aged Brie",
+                SellIn = 2,
+                Quality = -2
+            };
+
+            SetUpItem(matureItem);
+
+            Assert.Equal(1, matureItem.SellIn);
+            Assert.Equal(-1, matureItem.Quality);
+        }
+
+        [Fact]
+        public void TestAgedBrie_InvalidQuality_UpperBound()
+        {
+            var matureItem = new Item
+            {
+                Name = "Aged Brie",
+                SellIn = 2,
+                Quality = 50
+            };
+
+            SetUpItem(matureItem);
+
+            Assert.Equal(1, matureItem.SellIn);
+            Assert.Equal(50, matureItem.Quality);
+        }
+
+        [Fact]
+        public void TestAgedBrie_ValidQuality_UpperBound()
+        {
+            var matureItem = new Item
+            {
+                Name = "Aged Brie",
+                SellIn = 2,
+                Quality = 49
+            };
+
+            SetUpItem(matureItem);
+
+            Assert.Equal(1, matureItem.SellIn);
+            Assert.Equal(50, matureItem.Quality);
+        }
+
+        //invalid input (Quality) is not handled later in the legacy code
+        [Fact]
+        public void TestAgedBrie_ValidQuality_LowerBound()
+        {
+            var matureItem = new Item
+            {
+                Name = "Aged Brie",
+                SellIn = -1,
+                Quality = -1
+            };
+
+            SetUpItem(matureItem);
+
+            Assert.Equal(-2, matureItem.SellIn);
+            Assert.Equal(1, matureItem.Quality);
+        }
+
+        [Fact]
+        public void TestBackstagePasses_SellInLessThan0()
+        {
+            var backstageItem = new Item
+            {
+                Name = "Backstage passes to a TAFKAL80ETC concert",
+                SellIn = 0,
+                Quality = 1
+            };
+
+            SetUpItem(backstageItem);
+
+            Assert.Equal(0, backstageItem.Quality);
+        }
+
+        [Fact]
+        public void TestBackstagePasses_SellInLessThanOr5()
+        {
+            var backstageItem = new Item
+            {
+                Name = "Backstage passes to a TAFKAL80ETC concert",
+                SellIn = 3,
+                Quality = 0
+            };
+
+            SetUpItem(backstageItem);
+
+            Assert.Equal(3, backstageItem.Quality);
+        }
+
+        [Fact]
+        public void TestBackstagePasses_SellInLessThanOr10()
+        {
+            var backstageItem = new Item
+            {
+                Name = "Backstage passes to a TAFKAL80ETC concert",
+                SellIn = 9,
+                Quality = 10
+            };
+
+            SetUpItem(backstageItem);
+
+            Assert.Equal(12, backstageItem.Quality);
+        }
+
+        [Fact]
+        public void TestBackstagePasses_QualityLessThan50()
+        {
+            var backstageItem = new Item
+            {
+                Name = "Backstage passes to a TAFKAL80ETC concert",
+                SellIn = 15,
+                Quality = 49
+            };
+
+            SetUpItem(backstageItem);
+
+            Assert.Equal(50, backstageItem.Quality);
+        }
+
+        [Fact]
+        public void TestSulfuras_ValidQualityAndSellIn()
+        {
+            var legendaryItem = new Item
+            {
+                Name = "Sulfuras, Hand of Ragnaros",
+                SellIn = 0,
+                Quality = 80
+            };
+
+            SetUpItem(legendaryItem);
+
+            Assert.Equal(0, legendaryItem.SellIn);
+            Assert.Equal(80, legendaryItem.Quality);
+        }
+
+        //invalid input (Quality) is not handled later in the legacy code
+        [Fact]
+        public void TestSulfuras_InValidQualityAndSellIn()
+        {
+            var legendaryItem = new Item
+            {
+                Name = "Sulfuras, Hand of Ragnaros",
+                SellIn = -1,
+                Quality = 50
+            };
+
+            SetUpItem(legendaryItem);
+
+            Assert.Equal(-1, legendaryItem.SellIn);
+            Assert.Equal(50, legendaryItem.Quality);
+        }
+
         //HELPERS
         private void SetUpItem(Item item)
         {
