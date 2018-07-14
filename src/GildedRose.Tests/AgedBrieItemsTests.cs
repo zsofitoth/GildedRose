@@ -27,22 +27,6 @@ namespace GildedRose.Tests
         }
 
         [Fact]
-        public void TestAgedBrie_InvalidQuality_LowerBound()
-        {
-            var matureItem = new Item
-            {
-                Name = "Aged Brie",
-                SellIn = 2,
-                Quality = -2
-            };
-
-            Helper.SetUpItem(matureItem);
-
-            Assert.Equal(1, matureItem.SellIn);
-            Assert.Equal(-1, matureItem.Quality);
-        }
-
-        [Fact]
         public void TestAgedBrie_InvalidQuality_UpperBound()
         {
             var matureItem = new Item
@@ -89,6 +73,22 @@ namespace GildedRose.Tests
 
             Assert.Equal(-2, matureItem.SellIn);
             Assert.Equal(1, matureItem.Quality);
+        }
+
+        [Fact]
+        public void TestAgedBrie_InvalidQuality_LowerBound()
+        {
+            var matureItem = new Item
+            {
+                Name = "Aged Brie",
+                SellIn = 2,
+                Quality = -2
+            };
+
+            Helper.SetUpItem(matureItem);
+
+            Assert.Equal(1, matureItem.SellIn);
+            Assert.Equal(-1, matureItem.Quality);
         }
     }
 }

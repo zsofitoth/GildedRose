@@ -10,7 +10,25 @@ namespace GildedRose.Console
     {
         public void UpdateItem(Item item)
         {
+            item.SellIn = item.SellIn - 1;
 
+            //Conjured items degrade in quality twice as fast as standard items
+            int qualityDegradeValue = 2 * (item.SellIn < 0 ? 2 : 1);
+
+            if (item.Quality > 0)
+            {
+                item.Quality = item.Quality - qualityDegradeValue;
+            }
+
+            if (item.Quality < 0)
+            {
+                item.Quality = 0;
+            }
+
+            if (item.Quality > 50)
+            {
+                item.Quality = 50;
+            }
         }
     }
 }

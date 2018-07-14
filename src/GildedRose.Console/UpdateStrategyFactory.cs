@@ -10,17 +10,27 @@ namespace GildedRose.Console
     {
         public IUpdateStrategy GetStrategy(string itemName)
         {
-            switch (itemName)
+            if (itemName == "Aged Brie")
             {
-                case "Aged Brie":
-                    return new AgedBrieUpdateStrategy();
-                case "Backstage passes to a TAFKAL80ETC concert":
-                    return new BackstagePassesUpdateStrategy();
-                case "Sulfuras, Hand of Ragnaros":
-                    return new SulfurasUpdateStrategy();
-                default:
-                    return new NormalUpdateStrategy();
+                return new AgedBrieUpdateStrategy();
             }
+
+            if (itemName == "Backstage passes to a TAFKAL80ETC concert")
+            {
+                return new BackstagePassesUpdateStrategy();
+            }
+
+            if (itemName == "Sulfuras, Hand of Ragnaros")
+            {
+                return new SulfurasUpdateStrategy();
+            }
+
+            if (itemName.Contains("Conjured"))
+            {
+                return new ConjuredUpdateStrategy();
+            }
+
+            return new NormalUpdateStrategy();
         }
     }
 }
