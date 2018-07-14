@@ -210,13 +210,14 @@ namespace GildedRose.Tests
             var backstageItem = new Item
             {
                 Name = "Backstage passes to a TAFKAL80ETC concert",
-                SellIn = 0,
+                SellIn = 1,
                 Quality = 1
             };
 
             SetUpItem(backstageItem);
 
-            Assert.Equal(0, backstageItem.Quality);
+            Assert.Equal(0, backstageItem.SellIn);
+            Assert.Equal(4, backstageItem.Quality);
         }
 
         [Fact]
@@ -231,6 +232,7 @@ namespace GildedRose.Tests
 
             SetUpItem(backstageItem);
 
+            Assert.Equal(-2, backstageItem.SellIn);
             Assert.Equal(0, backstageItem.Quality);
         }
 
@@ -255,13 +257,14 @@ namespace GildedRose.Tests
             var backstageItem = new Item
             {
                 Name = "Backstage passes to a TAFKAL80ETC concert",
-                SellIn = 5,
+                SellIn = 6,
                 Quality = 2
             };
 
             SetUpItem(backstageItem);
 
-            Assert.Equal(5, backstageItem.Quality);
+            Assert.Equal(5, backstageItem.SellIn);
+            Assert.Equal(4, backstageItem.Quality);
         }
 
         [Fact]
@@ -276,6 +279,7 @@ namespace GildedRose.Tests
 
             SetUpItem(backstageItem);
 
+            Assert.Equal(8, backstageItem.SellIn);
             Assert.Equal(12, backstageItem.Quality);
         }
 
@@ -285,13 +289,14 @@ namespace GildedRose.Tests
             var backstageItem = new Item
             {
                 Name = "Backstage passes to a TAFKAL80ETC concert",
-                SellIn = 10,
+                SellIn = 11,
                 Quality = 10
             };
 
             SetUpItem(backstageItem);
 
-            Assert.Equal(12, backstageItem.Quality);
+            Assert.Equal(10, backstageItem.SellIn);
+            Assert.Equal(11, backstageItem.Quality);
         }
 
         [Fact]
@@ -306,22 +311,40 @@ namespace GildedRose.Tests
 
             SetUpItem(backstageItem);
 
+            Assert.Equal(14, backstageItem.SellIn);
             Assert.Equal(50, backstageItem.Quality);
         }
 
         [Fact]
-        public void TestBackstagePasses_QualityIsMoreThan50()
+        public void TestBackstagePasses_QualityIsMoreThan50_SellInIsPositive()
         {
             var backstageItem = new Item
             {
                 Name = "Backstage passes to a TAFKAL80ETC concert",
-                SellIn = 15,
+                SellIn = 3,
                 Quality = 51
             };
 
             SetUpItem(backstageItem);
 
+            Assert.Equal(2, backstageItem.SellIn);
             Assert.Equal(51, backstageItem.Quality);
+        }
+
+        [Fact]
+        public void TestBackstagePasses_QualityIsMoreThan50_SellInIsNegative()
+        {
+            var backstageItem = new Item
+            {
+                Name = "Backstage passes to a TAFKAL80ETC concert",
+                SellIn = -1,
+                Quality = 51
+            };
+
+            SetUpItem(backstageItem);
+
+            Assert.Equal(-2, backstageItem.SellIn);
+            Assert.Equal(0, backstageItem.Quality);
         }
 
         [Fact]
@@ -335,7 +358,7 @@ namespace GildedRose.Tests
             };
 
             SetUpItem(backstageItem);
-
+            Assert.Equal(14, backstageItem.SellIn);
             Assert.Equal(0, backstageItem.Quality);
         }
 
