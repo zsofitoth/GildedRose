@@ -13,7 +13,7 @@ namespace GildedRose.Console
             //end of each day (update) system lowers sell by date by 1
             item.SellIn = item.SellIn - 1;
 
-            //quality of an item is never negative
+            //quality of an item is never negative, but according to legacy code it just simply doesn't get updated
             if (item.Quality <= 0)
             {
                 return;

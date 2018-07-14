@@ -13,11 +13,11 @@ namespace GildedRose.Console
             switch (itemName)
             {
                 case "Aged Brie":
-                    return null;
+                    return new AgedBrieUpdateStrategy();
                 case "Backstage passes to a TAFKAL80ETC concert":
-                    return null;
+                    return new BackstagePassesUpdateStrategy();
                 case "Sulfuras, Hand of Ragnaros":
-                    return null;
+                    return new SulfurasUpdateStrategy();
                 default:
                     return new NormalUpdateStrategy();
             }
