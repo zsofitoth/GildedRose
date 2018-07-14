@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AgedBrieUpdateStrategy.cs" />
     <Compile Include="BackstagePassesUpdateStrategy.cs" />
+    <Compile Include="ConjuredUpdateStrategy.cs" />
     <Compile Include="IUpdateStrategy.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="IUpdateStrategyFactory.cs" />
