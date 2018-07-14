@@ -57,8 +57,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgedBrieItemsTests.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="NormalItemsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestAssemblyTests.cs" />
+    <Compile Include="SulfurasItemsTests.cs" />
+    <Compile Include="BackstagePassesItemsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
