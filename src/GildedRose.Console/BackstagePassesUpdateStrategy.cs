@@ -10,6 +10,7 @@ namespace GildedRose.Console
     {
         public void UpdateItem(Item item)
         {
+            item.SellIn = item.SellIn - 1;
             if (item.SellIn <= 0)
             {
                 item.Quality = 0;
