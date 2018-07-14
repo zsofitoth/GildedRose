@@ -19,7 +19,7 @@ namespace GildedRose.Console
             } else if(item.SellIn <= 10)
             {
                 item.Quality = item.Quality + 2;
-            } else
+            } else if(item.Quality < 50)
             {
                 item.Quality = item.Quality + 1;
             }
