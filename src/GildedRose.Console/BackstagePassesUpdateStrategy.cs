@@ -10,7 +10,19 @@ namespace GildedRose.Console
     {
         public void UpdateItem(Item item)
         {
-            throw new NotImplementedException();
+            if (item.SellIn <= 0)
+            {
+                item.Quality = 0;
+            } else if (item.SellIn <= 5)
+            {
+                item.Quality = item.Quality + 3;
+            } else if(item.SellIn <= 10)
+            {
+                item.Quality = item.Quality + 2;
+            } else
+            {
+                item.Quality = item.Quality + 1;
+            }
         }
     }
 }
