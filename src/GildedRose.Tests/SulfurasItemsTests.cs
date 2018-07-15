@@ -25,22 +25,5 @@ namespace GildedRose.Tests
             Assert.Equal(0, legendaryItem.SellIn);
             Assert.Equal(80, legendaryItem.Quality);
         }
-
-        //invalid input (Quality) is not handled later in the legacy code
-        [Fact]
-        public void TestSulfuras_InValidQualityAndSellIn()
-        {
-            var legendaryItem = new Item
-            {
-                Name = "Sulfuras, Hand of Ragnaros",
-                SellIn = -1,
-                Quality = 50
-            };
-
-            Helper.SetUpItem(legendaryItem);
-
-            Assert.Equal(-1, legendaryItem.SellIn);
-            Assert.Equal(50, legendaryItem.Quality);
-        }
     }
 }
