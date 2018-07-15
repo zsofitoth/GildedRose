@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AgedBrieItemsTests.cs" />
+    <Compile Include="ConjuredItemsTests.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="NormalItemsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -41,9 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgedBrieUpdateStrategy.cs" />
+    <Compile Include="BackstagePassesUpdateStrategy.cs" />
+    <Compile Include="ConjuredUpdateStrategy.cs" />
+    <Compile Include="IUpdateStrategy.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="IUpdateStrategyFactory.cs" />
+    <Compile Include="NormalUpdateStrategy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SulfurasUpdateStrategy.cs" />
+    <Compile Include="UpdateStrategyFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
