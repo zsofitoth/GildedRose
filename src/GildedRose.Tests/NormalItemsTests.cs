@@ -88,44 +88,5 @@ namespace GildedRose.Tests
             Assert.Equal(0, standardItem.SellIn);
             Assert.Equal(0, standardItem.Quality);
         }
-
-        /***********************************************************************************************
-        The following 2 tests prove that legacy code assumes that Quality provided will be less than 50 and more than 0.
-        It does not check for invalid state...
-        ***********************************************************************************************/
-        [Fact]
-        public void TestStandardItem_InvalidQuality_PositiveSellIn()
-        {
-            var standardItem = new Item
-            {
-                Name = "Elixir of the Mongoose",
-                SellIn = 5,
-                Quality = 59
-            };
-
-            Helper.SetUpItem(standardItem);
-
-            Assert.Equal(4, standardItem.SellIn);
-            Assert.Equal(58, standardItem.Quality);
-        }
-
-        [Fact]
-        public void TestStandardItem_InvalidQuality_NegativeSellIn()
-        {
-            var standardItem = new Item
-            {
-                Name = "+5 Dexterity Vest",
-                SellIn = 1,
-                Quality = -2
-            };
-
-            Helper.SetUpItem(standardItem);
-
-            Assert.Equal(0, standardItem.SellIn);
-            Assert.Equal(-2, standardItem.Quality);
-        }
-
-        /***********************************************************************************************/
-
     }
 }
