@@ -41,37 +41,5 @@ namespace GildedRose.Tests
             Assert.Equal(-2, conjuredItem.SellIn);
             Assert.Equal(2, conjuredItem.Quality);
         }
-
-        [Fact]
-        public void TestConjuredItem_InvalidQuality_Negative()
-        {
-            var conjuredItem = new Item
-            {
-                Name = "Conjured Mana Cake",
-                SellIn = -1,
-                Quality = -1
-            };
-
-            Helper.SetUpItem(conjuredItem);
-
-            Assert.Equal(-2, conjuredItem.SellIn);
-            Assert.Equal(0, conjuredItem.Quality);
-        }
-
-        [Fact]
-        public void TestConjuredItem_InvalidQuality_Positive()
-        {
-            var conjuredItem = new Item
-            {
-                Name = "Conjured Mana Cake",
-                SellIn = -1,
-                Quality = 59
-            };
-
-            Helper.SetUpItem(conjuredItem);
-
-            Assert.Equal(-2, conjuredItem.SellIn);
-            Assert.Equal(50, conjuredItem.Quality);
-        }
     }
 }

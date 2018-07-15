@@ -24,11 +24,6 @@ namespace GildedRose.Console
             {
                 item.Quality = 0;
             }
-
-            if (item.Quality > 50)
-            {
-                item.Quality = 50;
-            }
         }
     }
 }
