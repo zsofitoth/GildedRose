@@ -88,5 +88,53 @@ namespace GildedRose.Tests
             Assert.Equal(0, standardItem.SellIn);
             Assert.Equal(0, standardItem.Quality);
         }
+
+        [Fact]
+        public void TestStandardItem_ValidQualityLowerBound_PositiveSellIn2()
+        {
+            var standardItem = new Item
+            {
+                Name = "Elixir of the Mongoose",
+                SellIn = 1,
+                Quality = 1
+            };
+
+            Helper.SetUpItem(standardItem);
+
+            Assert.Equal(0, standardItem.SellIn);
+            Assert.Equal(0, standardItem.Quality);
+        }
+
+        [Fact]
+        public void TestStandardItem_ValidQualityLowerBound_NegativeSellIn2()
+        {
+            var standardItem = new Item
+            {
+                Name = "Elixir of the Mongoose",
+                SellIn = -1,
+                Quality = 2
+            };
+
+            Helper.SetUpItem(standardItem);
+
+            Assert.Equal(-2, standardItem.SellIn);
+            Assert.Equal(0, standardItem.Quality);
+        }
+
+        [Fact]
+        public void TestStandardItem_InvalidQualityLowerBound_PositiveSellIn2()
+        {
+            var standardItem = new Item
+            {
+                Name = "Elixir of the Mongoose",
+                SellIn = 0,
+                Quality = 1
+            };
+
+            Helper.SetUpItem(standardItem);
+
+            Assert.Equal(-1, standardItem.SellIn);
+            Assert.Equal(0, standardItem.Quality);
+        }
     }
 }
